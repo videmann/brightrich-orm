@@ -7,6 +7,10 @@ use Bitrix\Main\Request;
 use Bitrix\Main\UI\PageNavigation;
 use BrightRich\Iblock\SizesTable;
 
+/**
+ * Пока что неактуальный класс.
+ * Будет дописывать по аналогии с классом Cards
+ */
 class Sizes
 {
     const DEFAULT_OPTIONS = [
