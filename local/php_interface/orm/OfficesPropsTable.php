@@ -10,7 +10,7 @@ use Bitrix\Main\ORM\Fields\Relations\Reference;
 
 Loc::loadMessages(__FILE__);
 
-class SizesPropsTable extends DataManager
+class OfficesPropsTable extends DataManager
 {
     /**
      * Returns DB table name for entity.
@@ -69,6 +69,20 @@ class SizesPropsTable extends DataManager
                 [
                     'title' => Loc::getMessage('ELEMENT_PROP_S2_ENTITY_PROPERTY_6_FIELD'),
                     'column_name' => 'PROPERTY_6'
+                ]
+            ),
+            new IntegerField(
+                'SALE',
+                [
+                    'title' => '',
+                    'column_name' => 'PROPERTY_10'
+                ]
+            ),
+            new IntegerField(
+                'LEASE',
+                [
+                    'title' => '',
+                    'column_name' => 'PROPERTY_11'
                 ]
             ),
         ];

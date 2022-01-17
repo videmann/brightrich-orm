@@ -4,10 +4,10 @@ namespace BrightRich\Iblock;
 
 use Bitrix\Main\Entity\DataManager;
 use Bitrix\Main\Entity\IntegerField;
-use Bitrix\Main\ORM\Entity;
+use Bitrix\Main\Entity\StringField;
 use Bitrix\Main\ORM\Fields\Relations\Reference;
 
-class SizesTable extends DataManager
+class OfficesTable extends DataManager
 {
     public static function getTableName()
     {
@@ -25,9 +25,12 @@ class SizesTable extends DataManager
                     'primary' => true
                 ]
             ),
+            new StringField('NAME'),
+            new StringField('ACTIVE'),
+            new IntegerField('IBLOCK_ID'),
             new Reference(
                 'PROP',
-                SizesPropsTable::getEntity(),
+                OfficesPropsTable::getEntity(),
                 [
                     '=this.ID' => 'ref.IBLOCK_ELEMENT_ID'
                 ]

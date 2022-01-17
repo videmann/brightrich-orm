@@ -14,5 +14,5 @@ interface EntityInterface
     public function getOrder();
     public function getSelect();
     public function modifyFetchData(array &$data);
-    public function getCollection();
+    public function getCollection(array $groupBy);
 }

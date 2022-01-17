@@ -10,8 +10,8 @@ class CardsEntity extends Entity implements EntityInterface
     const ORDER = [
         'name_asc' => ['NAME' => 'ASC'],
         'name_desc' => ['NAME' => 'DESC'],
-        'price_asc' => ['SIZES_PRICE' => 'ASC'],
-        'price_desc' => ['SIZES_PRICE' => 'DESC'],
+        'price_asc' => ['SIZES.PRICE' => 'ASC'],
+        'price_desc' => ['SIZES.PRICE' => 'DESC'],
     ];
 
     //Выбор полей для вывода. У каждой сущности select разный
@@ -20,6 +20,7 @@ class CardsEntity extends Entity implements EntityInterface
         return [
             'ID',
             'NAME',
+            'PROP_' => 'PROP.*',
             'SIZES_' => 'SIZES.*'
         ];
     }
@@ -35,6 +36,10 @@ class CardsEntity extends Entity implements EntityInterface
             {
                 case 'price':
                     $filter->where('SIZES.PRICE', '>=', $request['price']);
+                    break;
+                case 'type':
+                    $value = mb_strtoupper($value);
+                    $filter->whereNot("SIZES.${value}", false);
                     break;
             }
         }
@@ -67,13 +72,14 @@ class CardsEntity extends Entity implements EntityInterface
     //Приведение полей к rest-api
     public function modifyFetchData(&$data): void
     {
+        /*
         foreach ($data as $key => $value)
         {
-            $nkey = preg_replace('/SIZES_/', '', $key);
+            $nkey = preg_replace('/SIZES\_|PROP\_/', '', $key);
             $data[$nkey] = $value;
             unset($data[$key]);
         }
-
+        */
         $data = array_change_key_case($data, CASE_LOWER);
     }
 }

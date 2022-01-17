@@ -46,13 +46,14 @@ abstract class Entity
         $this->query = new Query($entity);
     }
 
-    public function getCollection()
+    public function getCollection(array $groupBy)
     {
         //Выборка
         $this
             ->setFilter()
             ->setOrder($this->getOrder())
-            ->setSelect($this->getSelect());
+            ->setSelect($this->getSelect())
+            ->setGroup($groupBy);
 
         //Навигация
         $this->query

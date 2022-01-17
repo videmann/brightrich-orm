@@ -1,11 +1,11 @@
 <?php
 namespace BrightRich\Iblock;
 
-use Bitrix\Main\Localization\Loc,
-    Bitrix\Main\ORM\Data\DataManager,
-    Bitrix\Main\ORM\Fields\FloatField,
-    Bitrix\Main\ORM\Fields\IntegerField,
-    Bitrix\Main\ORM\Fields\TextField;
+use \Bitrix\Main\Localization\Loc,
+    \Bitrix\Main\ORM\Data\DataManager,
+    \Bitrix\Main\ORM\Fields\FloatField,
+    \Bitrix\Main\ORM\Fields\IntegerField,
+    \Bitrix\Main\ORM\Fields\TextField;
 
 Loc::loadMessages(__FILE__);
 

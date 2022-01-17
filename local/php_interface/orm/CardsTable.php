@@ -36,8 +36,8 @@ class CardsTable extends DataManager
                 ]
             ),
             new Reference(
-                'SIZES',
-                SizesPropsTable::getEntity(),
+                'OFFICES',
+                OfficesPropsTable::getEntity(),
                 [
                     '=this.ID' => 'ref.CARD_ID'
                 ]
